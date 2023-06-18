@@ -53,25 +53,55 @@
 // минимальным элементами массива.
 // [3.22, 4.2, 1.15, 77.15, 65.2] => 77.15 - 1.15 = 76
 
+// Console.WriteLine("Задайте размер массива");
+// int length = Convert.ToInt32(Console.ReadLine());
+
+// double [] array = new double [length];
+
+// double diff = 0;
+// double max = double.MinValue;
+// double min = double.MaxValue;
+// for (int i = 0; i < array.Length; i++)
+// {
+//     array[i] = (Math.Round(new Random().NextDouble(),2)) + new Random().Next(1,100);
+//     Console.Write(array[i]+" ");
+//     if(array[i] > max) max = array[i];
+//     if(array[i] < min) min = array[i];
+//     diff = max - min;
+// }
+
+// Console.WriteLine();
+// Console.WriteLine("Максимальный элемент массива "+max);
+// Console.WriteLine("Минимальный элемент массива "+min);
+// Console.WriteLine($"Разница между максимальным и минимальным элементами массива {diff}");
+
+// Задача 37: Найдите произведение пар чисел в одномерном массиве. 
+// Парой считаем первый и последний элемент, второй и предпоследний и т.д. 
+// Результат запишите в новом массиве.
+// [1 2 3 4 5] -> 5 8 3
+// [6 7 3 6] -> 36 21
+
 Console.WriteLine("Задайте размер массива");
 int length = Convert.ToInt32(Console.ReadLine());
 
-double [] array = new double [length];
-
-double diff = 0;
-double max = double.MinValue;
-double min = double.MaxValue;
-for (int i = 0; i < array.Length; i++)
+int [] array = new int [length];
+int [] newArray = new int[length/2];
+int i = 0;
+int maxI = array.Length - 1;
+for (i = 0; i < array.Length; i++)
 {
-    array[i] = (Math.Round(new Random().NextDouble(),2)) + new Random().Next(1,100);
+    array[i] = new Random().Next(1, 11);
     Console.Write(array[i]+" ");
-    if(array[i] > max) max = array[i];
-    if(array[i] < min) min = array[i];
-    diff = max - min;
+}
+Console.WriteLine();
+
+for (i = 0; i < newArray.Length; i++)
+{
+     newArray[i] = array[i] * array[maxI];
+     maxI = maxI - 1;
+     Console.Write(newArray[i]+" ");
 }
 
-Console.WriteLine();
-Console.WriteLine("Максимальный элемент массива "+max);
-Console.WriteLine("Минимальный элемент массива "+min);
-Console.WriteLine($"Разница между максимальным и минимальным элементами массива {diff}");
+
+
 
